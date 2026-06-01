@@ -1,3 +1,426 @@
-﻿<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Pawvo</title>
-<meta http-equiv="refresh" content="0;url=privacy-policy.html">
-</head><body><a href="privacy-policy.html">Privacy Policy</a></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawvo — Your Pet's Voice, Translated</title>
+<meta name="description" content="Pawvo uses AI to translate your pet's sounds into words. Give your dog or cat a real voice with a personality that grows over time.">
+<meta property="og:title" content="Pawvo — Your Pet's Voice, Translated">
+<meta property="og:description" content="AI-powered pet voice translation. Available on Android.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #0C0C0C; color: #fff; overflow-x: hidden; }
+a { text-decoration: none; }
+
+:root {
+  --orange: #FF8A65;
+  --orange-deep: #E64A19;
+  --teal: #4DB6AC;
+  --bg: #0C0C0C;
+  --bg2: #141414;
+  --bg3: #1A1A1A;
+  --border: rgba(255,255,255,0.08);
+  --muted: rgba(255,255,255,0.55);
+}
+
+/* Nav */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 64px;
+  background: rgba(12,12,12,0.85); backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; }
+.nav-paw { width: 36px; height: 36px; background: var(--orange); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.nav-name { font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--muted); transition: color .15s; }
+.nav-links a:hover { color: #fff; }
+.nav-cta { background: var(--orange) !important; color: #fff !important; padding: 9px 20px !important; border-radius: 8px; font-weight: 600 !important; transition: background .15s !important; }
+.nav-cta:hover { background: var(--orange-deep) !important; }
+
+/* Hero */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 120px 24px 80px; position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; top: 10%; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 500px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(255,138,101,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.badge-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,138,101,0.12); border: 1px solid rgba(255,138,101,0.3);
+  color: var(--orange); font-size: 0.8rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 100px; margin-bottom: 28px;
+}
+.badge-dot { width: 6px; height: 6px; background: var(--orange); border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; line-height: 1.05; letter-spacing: -2px; max-width: 820px; margin-bottom: 24px; }
+h1 em { font-style: normal; color: var(--orange); }
+.hero-sub { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--muted); max-width: 520px; line-height: 1.6; margin-bottom: 44px; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 72px; }
+.btn-p {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--orange); color: #fff; font-size: 1rem; font-weight: 700;
+  padding: 16px 32px; border-radius: 14px; transition: background .15s, transform .1s;
+}
+.btn-p:hover { background: var(--orange-deep); transform: translateY(-1px); }
+.btn-s {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--bg3); color: #fff; font-size: 1rem; font-weight: 600;
+  padding: 16px 28px; border-radius: 14px; border: 1px solid var(--border);
+  transition: background .15s, transform .1s;
+}
+.btn-s:hover { background: #222; transform: translateY(-1px); }
+
+/* Phone + Watch mockup */
+.mockup { position: relative; display: flex; align-items: flex-end; justify-content: center; height: 420px; }
+.phone {
+  width: 220px; height: 420px; background: #1C1C1C; border-radius: 36px;
+  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+  overflow: hidden; position: relative; flex-shrink: 0;
+}
+.notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 28px; background: #0C0C0C; border-radius: 0 0 18px 18px; z-index: 2; }
+.pscreen { width: 100%; height: 100%; background: linear-gradient(160deg,#1A1A2E 0%,#0C0C0C 100%); display: flex; flex-direction: column; padding: 52px 16px 20px; }
+.bubble { border-radius: 16px; padding: 10px 14px; font-size: 0.7rem; line-height: 1.4; max-width: 80%; margin-bottom: 8px; }
+.bubble.pet { background: rgba(255,138,101,0.15); border: 1px solid rgba(255,138,101,0.2); color: var(--orange); align-self: flex-start; border-bottom-left-radius: 4px; }
+.bubble.you { background: rgba(77,182,172,0.15); border: 1px solid rgba(77,182,172,0.2); color: var(--teal); align-self: flex-end; border-bottom-right-radius: 4px; }
+.blabel { font-size: 0.55rem; color: var(--muted); margin-bottom: 4px; }
+.blabel.r { text-align: right; }
+.watch {
+  width: 110px; height: 125px; background: #1C1C1C; border-radius: 30px;
+  border: 2px solid rgba(255,255,255,0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  overflow: hidden; position: relative; margin-left: -16px; margin-bottom: 24px; flex-shrink: 0;
+}
+.wscreen {
+  width: 100%; height: 100%;
+  background: radial-gradient(ellipse at center, rgba(255,138,101,0.15) 0%,#0A0A0A 70%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 12px;
+}
+.wring {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,138,101,0.1); border: 2px solid rgba(255,138,101,0.4);
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+  animation: rpulse 2.5s ease-in-out infinite;
+}
+@keyframes rpulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,138,101,0.3)}50%{box-shadow:0 0 0 8px rgba(255,138,101,0)} }
+
+/* Sections */
+section { padding: 100px 24px; }
+.container { max-width: 1080px; margin: 0 auto; }
+.slabel { font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+.stitle { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; letter-spacing: -1px; line-height: 1.15; margin-bottom: 16px; }
+.ssub { font-size: 1.05rem; color: var(--muted); max-width: 540px; line-height: 1.65; }
+
+/* Features */
+.features { background: var(--bg2); }
+.fgrid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2px; margin-top: 64px; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
+.fcard { background: var(--bg3); padding: 36px 32px; transition: background .2s; }
+.fcard:hover { background: #202020; }
+.ficon { width: 52px; height: 52px; border-radius: 14px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+.fcard h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
+.fcard p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+/* How it works */
+.how { background: var(--bg); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 24px; margin-top: 64px; }
+.step { background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; padding: 32px 28px; position: relative; overflow: hidden; transition: transform .2s, border-color .2s; }
+.step:hover { transform: translateY(-4px); border-color: rgba(255,138,101,0.3); }
+.snum { font-size: 3.5rem; font-weight: 900; line-height: 1; color: rgba(255,138,101,0.1); margin-bottom: 20px; }
+.step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.step p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+.sbar { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,var(--orange),var(--teal)); transform: scaleX(0); transform-origin: left; transition: transform .3s; }
+.step:hover .sbar { transform: scaleX(1); }
+
+/* Personality */
+.personality { background: var(--bg2); }
+.p-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.traits { display: flex; flex-direction: column; gap: 18px; margin-top: 40px; }
+.trait { display: flex; flex-direction: column; gap: 8px; }
+.trait-hd { display: flex; justify-content: space-between; font-size: 0.85rem; }
+.trait-hd span:first-child { font-weight: 600; }
+.trait-hd span:last-child { color: var(--muted); }
+.track { height: 8px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+.fill { height: 100%; border-radius: 100px; }
+
+/* CTA */
+.cta { background: var(--bg); text-align: center; }
+.cta-card {
+  background: linear-gradient(135deg,rgba(255,138,101,0.12) 0%,rgba(77,182,172,0.08) 100%);
+  border: 1px solid rgba(255,138,101,0.2); border-radius: 28px; padding: 72px 40px; position: relative; overflow: hidden;
+}
+.cta-card::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%,rgba(255,138,101,0.08) 0%,transparent 60%); pointer-events:none; }
+.cta-card h2 { font-size: clamp(1.8rem,4vw,3rem); font-weight: 900; letter-spacing: -1px; margin-bottom: 16px; }
+.cta-card p { font-size: 1.05rem; color: var(--muted); margin-bottom: 44px; }
+.store-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.gplay {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: #fff; color: #111; padding: 14px 24px; border-radius: 14px;
+  transition: transform .15s, box-shadow .15s;
+}
+.gplay:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+.gplay svg { width: 26px; height: 26px; flex-shrink: 0; }
+.gplay-sub { font-size: 0.7rem; color: #666; display: block; }
+.gplay-main { font-size: 1rem; font-weight: 700; color: #111; display: block; line-height: 1.2; }
+
+/* Footer */
+footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 48px 40px 40px; }
+.footer-in { max-width: 1080px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 32px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 24px; }
+.footer-links a { font-size: 0.875rem; color: var(--muted); transition: color .15s; }
+.footer-links a:hover { color: #fff; }
+.copy { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .p-inner { grid-template-columns: 1fr; gap: 40px; }
+  .mockup { height: 320px; }
+  .phone { width: 170px; height: 320px; }
+  .watch { width: 88px; height: 100px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-paw">🐾</div>
+    <span class="nav-name">Pawvo</span>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#personality">Personality</a>
+    <a href="#download" class="nav-cta">Get the app</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="badge-pill"><div class="badge-dot"></div> Now available for Android</div>
+  <h1>Your pet has<br>something to <em>say.</em></h1>
+  <p class="hero-sub">Pawvo listens to your pet's sounds and translates them into words — giving your dog or cat a unique personality and voice that evolves over time.</p>
+  <div class="hero-btns">
+    <a href="#download" class="btn-p">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Download free
+    </a>
+    <a href="#how-it-works" class="btn-s">See how it works</a>
+  </div>
+  <div class="mockup">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="pscreen">
+        <div style="font-size:0.6rem;color:rgba(255,255,255,0.3);margin-bottom:16px;text-align:center;letter-spacing:1px;text-transform:uppercase;">Live Session</div>
+        <div class="blabel">Biscuit</div>
+        <div class="bubble pet">I heard that crinkle sound and now I simply cannot focus on anything else. Is it a treat?</div>
+        <div class="blabel r">You said</div>
+        <div class="bubble you">Good morning, buddy!</div>
+        <div class="blabel">Biscuit</div>
+        <div class="bubble pet">Morning! Have you considered that breakfast could happen immediately? Just a thought.</div>
+        <div style="flex:1"></div>
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border-radius:12px;padding:10px 12px;">
+          <div style="width:8px;height:8px;background:var(--orange);border-radius:50%;animation:pulse 1s infinite;"></div>
+          <span style="font-size:0.6rem;color:var(--muted);">Listening…</span>
+        </div>
+      </div>
+    </div>
+    <div class="watch">
+      <div class="wscreen">
+        <div style="font-size:0.45rem;color:rgba(255,255,255,0.3);letter-spacing:1px;text-transform:uppercase;">PAWVO</div>
+        <div class="wring">🐾</div>
+        <div style="font-size:0.55rem;color:var(--orange);font-weight:600;">Listening</div>
+        <div style="font-size:0.5rem;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;">Voice active</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div class="container">
+    <div class="slabel">Features</div>
+    <h2 class="stitle">Everything your pet<br>has been trying to tell you</h2>
+    <p class="ssub">A complete system — phone app, Wear OS companion, and an AI that gets to know your pet.</p>
+    <div class="fgrid">
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(255,138,101,0.12);">🎙️</div>
+        <h3>Real-time voice translation</h3>
+        <p>Your pet's vocalizations are captured by a Wear OS watch, transcribed by AI, and translated into natural language responses in seconds.</p>
+      </div>
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(77,182,172,0.12);">🧠</div>
+        <h3>Evolving personality</h3>
+        <p>The AI learns from every session. Your pet develops a consistent character — with wit, quirks, and a way of speaking that's uniquely theirs.</p>
+      </div>
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(255,138,101,0.12);">📱</div>
+        <h3>Live conversation transcript</h3>
+        <p>Watch your pet's words appear on your phone in real time. Save and revisit past conversations to remember the best moments.</p>
+      </div>
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(77,182,172,0.12);">⌚</div>
+        <h3>Wear OS companion</h3>
+        <p>A smartwatch worn by your pet captures sounds and sensor data. Smart voice-activity detection means it only fires when your pet vocalizes.</p>
+      </div>
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(255,138,101,0.12);">🐕🐈</div>
+        <h3>Multiple pets</h3>
+        <p>Add as many pets as you like — each with their own profile, voice, and personality that develops independently over time.</p>
+      </div>
+      <div class="fcard">
+        <div class="ficon" style="background:rgba(77,182,172,0.12);">🔒</div>
+        <h3>Private by design</h3>
+        <p>Audio is processed securely and not stored permanently. Location data is used only for environmental context and is never sold.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <div class="slabel">How it works</div>
+    <h2 class="stitle">From bark to sentence<br>in seconds</h2>
+    <p class="ssub">A seamless pipeline runs in the background — you just talk to your pet.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="snum">01</div>
+        <h3>Pet makes a sound</h3>
+        <p>The Wear OS watch detects voice activity and captures the audio clip. Only real vocalizations trigger a capture — no background noise.</p>
+        <div class="sbar"></div>
+      </div>
+      <div class="step">
+        <div class="snum">02</div>
+        <h3>AI transcribes and understands</h3>
+        <p>Audio is transcribed using speech-to-text AI, combined with sensor context like movement and location to understand the situation.</p>
+        <div class="sbar"></div>
+      </div>
+      <div class="step">
+        <div class="snum">03</div>
+        <h3>Personality generates a response</h3>
+        <p>A language model — shaped by your pet's unique personality profile — generates a response in your pet's own voice and style.</p>
+        <div class="sbar"></div>
+      </div>
+      <div class="step">
+        <div class="snum">04</div>
+        <h3>Spoken in your pet's voice</h3>
+        <p>The response is synthesized using Amazon Polly in a voice matched to your pet and played back through your phone's speaker.</p>
+        <div class="sbar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Personality -->
+<section class="personality" id="personality">
+  <div class="container">
+    <div class="p-inner">
+      <div>
+        <div class="slabel">Personality system</div>
+        <h2 class="stitle">A pet that grows<br>with every session</h2>
+        <p class="ssub" style="margin-bottom:0;">Every conversation subtly shifts your pet's trait weights — curiosity, playfulness, sass, affection — building a profile that becomes unmistakably <em>them</em>.</p>
+        <div class="traits">
+          <div class="trait">
+            <div class="trait-hd"><span>Playfulness</span><span>87%</span></div>
+            <div class="track"><div class="fill" style="width:87%;background:linear-gradient(90deg,#FF8A65,#FFB74D);"></div></div>
+          </div>
+          <div class="trait">
+            <div class="trait-hd"><span>Curiosity</span><span>74%</span></div>
+            <div class="track"><div class="fill" style="width:74%;background:linear-gradient(90deg,#4DB6AC,#80CBC4);"></div></div>
+          </div>
+          <div class="trait">
+            <div class="trait-hd"><span>Affection</span><span>92%</span></div>
+            <div class="track"><div class="fill" style="width:92%;background:linear-gradient(90deg,#FF8A65,#FFB74D);"></div></div>
+          </div>
+          <div class="trait">
+            <div class="trait-hd"><span>Sass</span><span>61%</span></div>
+            <div class="track"><div class="fill" style="width:61%;background:linear-gradient(90deg,#AB47BC,#CE93D8);"></div></div>
+          </div>
+          <div class="trait">
+            <div class="trait-hd"><span>Independence</span><span>45%</span></div>
+            <div class="track"><div class="fill" style="width:45%;background:linear-gradient(90deg,#4DB6AC,#80CBC4);"></div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:24px;padding:28px;max-width:360px;margin:0 auto;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:24px;">
+            <div style="width:52px;height:52px;background:linear-gradient(135deg,#FF8A65,#FF5722);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;">🐶</div>
+            <div>
+              <div style="font-weight:700;font-size:1rem;">Biscuit</div>
+              <div style="font-size:0.8rem;color:var(--muted);">Golden Retriever · 3 yrs</div>
+            </div>
+            <div style="margin-left:auto;background:rgba(255,138,101,0.12);border:1px solid rgba(255,138,101,0.25);color:var(--orange);font-size:0.7rem;font-weight:600;padding:4px 10px;border-radius:100px;">Session 47</div>
+          </div>
+          <div style="background:rgba(255,138,101,0.06);border:1px solid rgba(255,138,101,0.12);border-radius:14px;padding:16px;margin-bottom:16px;">
+            <div style="font-size:0.65rem;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;">Latest from Biscuit</div>
+            <p style="font-size:0.85rem;line-height:1.5;color:rgba(255,255,255,0.85);font-style:italic;">"I don't want to alarm anyone, but there's a squirrel situation developing in the backyard that requires immediate attention."</p>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:14px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:800;color:var(--orange);">47</div>
+              <div style="font-size:0.7rem;color:var(--muted);">Sessions</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:14px;text-align:center;">
+              <div style="font-size:1.4rem;font-weight:800;color:var(--teal);">312</div>
+              <div style="font-size:0.7rem;color:var(--muted);">Translations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / Download -->
+<section class="cta" id="download">
+  <div class="container">
+    <div class="cta-card">
+      <div class="slabel" style="justify-content:center;display:flex;">Free to download</div>
+      <h2>Ready to hear what<br>your pet is thinking?</h2>
+      <p>Available now on Android. A Wear OS smartwatch is required for live sessions.</p>
+      <div class="store-btns">
+        <a href="https://play.google.com/store/apps/details?id=com.pawvo.app" class="gplay">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.18 23.76c.3.17.65.2.98.08l12.49-7.21-2.79-2.79-10.68 9.92zM.54 1.1C.2 1.4 0 1.9 0 2.54v18.92c0 .64.2 1.14.54 1.44l.08.07 10.6-10.6v-.25L.62 1.02l-.08.08zM22.35 10.52l-2.99-1.73-3.13 3.13 3.13 3.13 3.01-1.73c.86-.49.86-1.29-.02-1.8zM3.18.24l12.49 7.2-2.79 2.79L2.2.31C2.53.18 2.88.21 3.18.38v-.14z"/></svg>
+          <span><span class="gplay-sub">Get it on</span><span class="gplay-main">Google Play</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-in">
+    <div>
+      <div class="nav-logo" style="margin-bottom:8px;">
+        <div class="nav-paw" style="width:32px;height:32px;font-size:16px;border-radius:8px;">🐾</div>
+        <span class="nav-name">Pawvo</span>
+      </div>
+      <p style="font-size:0.85rem;color:var(--muted);max-width:220px;line-height:1.5;">Your pet's voice, translated.</p>
+    </div>
+    <div class="footer-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="delete-account.html">Delete Account</a>
+      <a href="mailto:calebbsides@gmail.com">Contact</a>
+    </div>
+    <div class="copy">© 2026 Pawvo. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>
