@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Pawvo Account</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; color: #222; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px 80px; }
+  .card { background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); max-width: 560px; width: 100%; padding: 40px 36px; }
+  .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+  .logo-icon { width: 48px; height: 48px; background: #FF8A65; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+  .logo-name { font-size: 1.5rem; font-weight: 800; color: #E64A19; letter-spacing: -0.5px; }
+  h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; color: #111; }
+  .subtitle { color: #666; font-size: 0.95rem; margin-bottom: 32px; line-height: 1.5; }
+  .section { margin-bottom: 28px; }
+  .section h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 12px; }
+  .data-list { list-style: none; }
+  .data-list li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.92rem; color: #333; line-height: 1.4; }
+  .data-list li:last-child { border-bottom: none; }
+  .data-list li::before { content: '🗑'; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+  .retained-list li::before { content: 'ℹ️'; }
+  .steps { counter-reset: step; list-style: none; }
+  .steps li { counter-increment: step; display: flex; align-items: flex-start; gap: 14px; padding: 10px 0; font-size: 0.93rem; color: #333; line-height: 1.5; }
+  .steps li::before { content: counter(step); background: #FF8A65; color: #fff; font-weight: 700; font-size: 0.8rem; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .divider { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+  .email-btn { display: inline-flex; align-items: center; gap: 8px; background: #E64A19; color: #fff; font-size: 0.95rem; font-weight: 600; padding: 14px 28px; border-radius: 12px; text-decoration: none; transition: background 0.15s; }
+  .email-btn:hover { background: #BF360C; }
+  .email-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .note { background: #FFF3E0; border-left: 4px solid #FF8A65; border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 0.88rem; color: #5D4037; line-height: 1.5; margin-top: 20px; }
+  .footer { margin-top: 32px; font-size: 0.8rem; color: #aaa; text-align: center; }
+  .footer a { color: #E64A19; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="logo">
+    <div class="logo-icon">🐾</div>
+    <span class="logo-name">Pawvo</span>
+  </div>
+
+  <h1>Delete Your Account</h1>
+  <p class="subtitle">You can delete your Pawvo account and all associated data at any time. This action is permanent and cannot be undone.</p>
+
+  <div class="section">
+    <h2>What gets deleted</h2>
+    <ul class="data-list">
+      <li>Your account profile (name and email address)</li>
+      <li>All pet profiles and photos you've uploaded</li>
+      <li>All conversation transcripts and session history</li>
+      <li>Your pet's personality data and voice settings</li>
+      <li>Any paired device associations</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>What is retained</h2>
+    <ul class="data-list retained-list">
+      <li>Anonymized, aggregated usage statistics that cannot be linked back to you</li>
+      <li>Records required by law or to resolve ongoing disputes (if any)</li>
+    </ul>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <h2>How to delete your account</h2>
+
+    <p style="font-size:0.93rem;color:#444;margin-bottom:16px;line-height:1.5;"><strong>Option 1 — In the app (fastest):</strong></p>
+    <ol class="steps">
+      <li>Open the Pawvo app and sign in</li>
+      <li>Tap the <strong>Settings</strong> icon in the top right</li>
+      <li>Scroll to the bottom and tap <strong>Delete Account</strong></li>
+      <li>Confirm the deletion — your account is removed immediately</li>
+    </ol>
+
+    <hr class="divider">
+
+    <p style="font-size:0.93rem;color:#444;margin-bottom:16px;line-height:1.5;"><strong>Option 2 — By email</strong> (if you no longer have access to the app):</p>
+    <a href="mailto:calebbsides@gmail.com?subject=Account%20Deletion%20Request&body=Please%20delete%20my%20Pawvo%20account.%0A%0AEmail%20address%20associated%20with%20my%20account%3A%20" class="email-btn">
+      <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+      Email a deletion request
+    </a>
+
+    <div class="note">
+      Include the email address associated with your Pawvo account. We will process your request and confirm deletion within <strong>7 business days</strong>.
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp; Pawvo &copy; 2026
+  </div>
+
+</div>
+</body>
+</html>
